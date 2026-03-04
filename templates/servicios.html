@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Nuestros Servicios | L&D Tecnológica{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-service.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <h1>Nuestras Capacidades</h1>
+        <p>Desarrollamos ingeniería aplicada para garantizar la continuidad y eficiencia de sus operaciones industriales.</p>
+    </section>
+
+    <section class="services-section">
+        <div class="gallery-container">
+            <div class="gallery-card card-1" data-service="automatizacion" style="cursor: pointer;">
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <span class="card-number">01</span>
+                    <h3>Automatización</h3>
+                    <div class="card-desc">
+                        <p>Optimización de procesos mediante programación avanzada de PLC, HMI y arquitecturas SCADA robustas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card card-2" data-service="tableros" style="cursor: pointer;">
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <span class="card-number">02</span>
+                    <h3>Tableros Eléctricos</h3>
+                    <div class="card-desc">
+                        <p>Diseño, montaje y mantenimiento de tableros de distribución, fuerza y control bajo normativas IEC.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card card-3" data-service="instrumentacion" style="cursor: pointer;">
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <span class="card-number">03</span>
+                    <h3>Instrumentación</h3>
+                    <div class="card-desc">
+                        <p>Selección, calibración y control de lazos cerrados para variables de presión, temperatura y caudal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card card-4" data-service="bombeo" style="cursor: pointer;">
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <span class="card-number">04</span>
+                    <h3>Bombeo Constante</h3>
+                    <div class="card-desc">
+                        <p>Sistemas hidroneumáticos eficientes operados con variadores de frecuencia (VFD) multimarca.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card card-5" data-service="consultoria" style="cursor: pointer;">
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <span class="card-number">05</span>
+                    <h3>Consultoría</h3>
+                    <div class="card-desc">
+                        <p>Estudios de calidad de energía, auditorías eléctricas y propuestas de modernización tecnológica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 5%; background-color: white; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-family: var(--font-head); font-size: 2.2rem; color: var(--primary);">Tecnologías y Herramientas</h2>
+                <p style="color: var(--text-gray); font-size: 1.1rem; max-width: 700px; margin: 15px auto 0;">
+                    Nuestros especialistas dominan el software y hardware de grado industrial necesario para llevar sus proyectos desde el diseño conceptual hasta la puesta en marcha.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <div style="padding: 30px; border: 1px solid #eee; border-radius: 8px; transition: transform 0.3s ease;">
+                    <i class="fas fa-drafting-compass" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--primary);">Diseño y Modelado</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-gray);">AutoCAD 2D/3D<br>Autodesk Inventor</p>
+                </div>
+                <div style="padding: 30px; border: 1px solid #eee; border-radius: 8px; transition: transform 0.3s ease;">
+                    <i class="fas fa-microchip" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--primary);">Control y Embebidos</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-gray);">Arduino / ESP32<br>Raspberry Pi</p>
+                </div>
+                <div style="padding: 30px; border: 1px solid #eee; border-radius: 8px; transition: transform 0.3s ease;">
+                    <i class="fas fa-code" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--primary);">Programación</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-gray);">Python / C++<br>Visión Artificial (YOLO)</p>
+                </div>
+                <div style="padding: 30px; border: 1px solid #eee; border-radius: 8px; transition: transform 0.3s ease;">
+                    <i class="fas fa-industry" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--primary);">Automatización</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-gray);">PLC / HMI<br>Sistemas SCADA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 5%; background-color: var(--bg-body);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-family: var(--font-head); font-size: 2.2rem; color: var(--primary);">El Estándar L&D</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                    <i class="fas fa-hard-hat" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 15px;">Seguridad Industrial</h3>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">Ejecutamos cada proyecto cumpliendo estrictamente con el Código Nacional de Electricidad (CNE) y protocolos SST.</p>
+                </div>
+                <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                    <i class="fas fa-file-signature" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 15px;">Ingeniería Documentada</h3>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">Entregamos dossier de calidad integral, memorias de cálculo y planos As-Built en cada puesta en marcha.</p>
+                </div>
+                <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                    <i class="fas fa-headset" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 15px;">Respaldo Post-Venta</h3>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">Aseguramos la continuidad de sus operaciones con soporte técnico prioritario y mantenimientos preventivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 5%; background-color: var(--primary); text-align: center; color: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 20px;">¿Requiere una solución a medida?</h2>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 40px;">Nuestro equipo de especialistas está listo para analizar los requerimientos específicos de su planta.</p>
+            <a href="https://wa.me/51947924204?text=Hola,%20deseo%20evaluar%20un%20proyecto%20con%20ustedes." target="_blank" class="btn-primary" style="background-color: var(--accent); padding: 15px 35px; border-radius: 4px; font-weight: 600; text-transform: uppercase;">
+                <i class="fab fa-whatsapp"></i> Agendar Evaluación Técnica
+            </a>
+        </div>
+    </section>
+
+    <div id="service-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2 id="modal-title">Título del Servicio</h2>
+                <p id="modal-subtitle">Subtítulo o promesa de valor</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-grid">
+                    
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 10px;"><i class="fas fa-cogs"></i> Nuestras Capacidades (A elección)</h4>
+                        <ul id="modal-scope" class="modal-list"></ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #e67e22; margin-bottom: 10px;"><i class="fas fa-exclamation-triangle"></i> Limitaciones</h4>
+                        <ul id="modal-limitations" class="modal-list"></ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 10px;"><i class="fas fa-clipboard-check"></i> Entregables</h4>
+                        <ul id="modal-deliverables" class="modal-list"></ul>
+                    </div>
+
+                </div>
+                <div style="margin-top: 25px; text-align: center;">
+                    <a id="modal-whatsapp" href="#" target="_blank" class="btn-primary" style="display: inline-block; padding: 12px 30px;">
+                        <i class="fab fa-whatsapp"></i> Cotizar este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='js/script-servicios.js') }}" defer></script>
+{% endblock %}

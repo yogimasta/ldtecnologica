@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio | L&D Tecnológica Lima{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-bg"></div> 
+        <div class="hero-content reveal active">
+            <div class="hero-text">
+                <h1>Ingeniería de Precisión.<br>Impacto Real.</h1>
+                <p>Fusionamos tecnología avanzada con infraestructura eléctrica robusta para la industria moderna.</p>
+            </div>
+
+           <div class="hero-form-box">
+    <h3 style="font-family: var(--font-head); margin-bottom: 20px; font-size: 1.5rem; text-align: center;">Cotice su Proyecto</h3>
+    
+    <form id="hero-contact-form">
+        
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <label for="validacion_empresa">Si eres humano, deja este campo en blanco:</label>
+            <input type="text" id="validacion_empresa" name="validacion_empresa" tabindex="-1" autocomplete="off">
+        </div>
+        
+        <div class="form-input-group">
+            <label for="hero-nombre" class="form-label">Nombre Completo *</label>
+            <input type="text" id="hero-nombre" name="nombre" required class="form-control">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+            <div>
+                <label for="hero-empresa" class="form-label">Empresa</label>
+                <input type="text" id="hero-empresa" name="empresa" class="form-control">
+            </div>
+            <div>
+                <label for="hero-telefono" class="form-label">Celular</label>
+                <input type="tel" id="hero-telefono" name="telefono" required class="form-control">
+            </div>
+        </div>
+
+        <div class="form-input-group">
+            <label for="hero-correo" class="form-label">Correo Electrónico *</label>
+            <input type="email" id="hero-correo" name="correo" required class="form-control">
+        </div>
+
+        <div class="form-input-group" style="margin-bottom: 20px;">
+            <label for="hero-mensaje" class="form-label">Detalles del Proyecto *</label>
+            <textarea id="hero-mensaje" name="mensaje" rows="3" required class="form-control" style="resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" data-nombre="enviar formulario" style="width: 100%;">
+            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Asesoría
+        </button>
+    </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-teaser" class="section-padding reveal" style="background: white;">
+        <div class="section-header">
+            <small>Nuestra Especialidad</small>
+            <h2>Soluciones en Ingeniería</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
+            <div class="service-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Automatización y Control</h3>
+                <p>Integración de sistemas PLC, HMI y SCADA para optimizar el rendimiento y seguridad de su planta industrial.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Tableros Eléctricos</h3>
+                <p>Diseño, ensamblaje y mantenimiento de tableros de distribución y fuerza cumpliendo normativas internacionales.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-tint"></i>
+                <h3>Bombeo e Instrumentación</h3>
+                <p>Sistemas hidroneumáticos de presión constante y calibración de lazos de control para procesos críticos.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="/servicios" class="btn-primary" style="padding: 15px 35px;">
+                Ver catálogo completo <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="workflow-section section-padding reveal">
+        <div class="section-header">
+            <small>Nuestro Proceso</small>
+            <h2>De la Idea a la Puesta en Marcha</h2>
+        </div>
+
+        <div class="workflow-grid">
+            <div class="workflow-step">
+                <div class="step-number">01</div>
+                <h3>Evaluación</h3>
+                <p>Analizamos las necesidades específicas de su planta y levantamos información técnica en campo.</p>
+            </div>
+
+            <div class="workflow-connector"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="workflow-step">
+                <div class="step-number">02</div>
+                <h3>Ingeniería</h3>
+                <p>Diseñamos planos y seleccionamos los equipos óptimos bajo estándares internacionales IEC/NEMA.</p>
+            </div>
+
+            <div class="workflow-connector"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="workflow-step">
+                <div class="step-number">03</div>
+                <h3>Ejecución</h3>
+                <p>Implementamos, calibramos y realizamos pruebas de funcionamiento asegurando cero tiempos muertos.</p>
+            </div>
+        </div>
+        
+        <div class="coverage-note">
+            <p><i class="fas fa-truck-pickup" style="color: var(--accent); margin-right: 10px;"></i> <strong>Cobertura:</strong> Atendemos servicios en todo Lima Metropolitana y proyectos en provincia previa coordinación.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding reveal">
+        <div class="section-header">
+            <small>Dudas Comunes</small>
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Cuánto tiempo demora la fabricación de un tablero eléctrico?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Depende de la complejidad. Tableros de arranque directo o distribución suelen tomar entre **5 a 7 días hábiles**. Proyectos de automatización con integración de PLC y HMI pueden requerir de **2 a 4 semanas** incluyendo pruebas FAT.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Realizan servicios en provincia o solo en Lima?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Atendemos a nivel nacional. Nuestro equipo se moviliza a cualquier región del Perú para levantamiento de información y ejecución, cumpliendo con los protocolos de seguridad requeridos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Con qué marcas de componentes trabajan?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Somos integradores multimarca. Trabajamos principalmente con Schneider Electric, Siemens, ABB, Rockwell Automation y Phoenix Contact, adaptándonos al estándar que su planta ya utilice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='js/script-index.js') }}"></script>
+{% endblock %}

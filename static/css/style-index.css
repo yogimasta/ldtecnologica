@@ -1,0 +1,97 @@
+/* --- HERO (ACTUALIZADO CON FORMULARIO) --- */
+.hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    color: white; position: relative; background-color: var(--bg-dark);
+    padding: 120px 5% 60px 5%;
+}
+
+.hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('../imagenes/portada.webp');
+    background-size: cover; background-position: center; z-index: 0;
+}
+
+.hero-content { 
+    z-index: 1; max-width: 1200px; width: 100%;
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px;
+    align-items: center; text-align: left;
+}
+
+.hero-text h1 { font-family: var(--font-head); font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 25px; letter-spacing: -1px; }
+.hero-text p { font-size: 1.15rem; color: rgba(255,255,255,0.85); font-weight: 300; max-width: 600px; }
+
+.hero-form-box {
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(10px); 
+    padding: 35px; border-radius: 12px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+    border-top: 4px solid var(--accent); color: var(--primary);
+}
+
+.form-input-group { margin-bottom: 15px; }
+.form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--primary); }
+.form-control {
+    width: 100%; padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 6px;
+    font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: var(--transition);
+}
+.form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1); }
+
+/* --- SERVICES TEASER --- */
+.section-header { margin-bottom: 70px; text-align: center; }
+.section-header small { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 10px; }
+.section-header h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--primary); font-weight: 600; }
+
+.service-card {
+    padding: 40px; background: var(--bg-body); border-radius: 8px; text-align: center; 
+    border-bottom: 3px solid var(--accent); transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.service-card i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+.service-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 15px; color: var(--primary); }
+.service-card p { color: var(--text-gray); font-size: 0.95rem; }
+
+/* --- WORKFLOW --- */
+.workflow-grid { display: flex; justify-content: center; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto 60px auto; flex-wrap: wrap; }
+.workflow-step { flex: 1; min-width: 250px; text-align: center; padding: 30px; background: #f8fafc; border-radius: 8px; transition: var(--transition); border: 1px solid transparent; }
+.workflow-step:hover { background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-5px); border-color: rgba(14, 165, 233, 0.2); }
+.step-number { font-family: var(--font-head); font-size: 3rem; font-weight: 700; color: rgba(14, 165, 233, 0.1); line-height: 1; margin-bottom: -15px; position: relative; z-index: 1; }
+.workflow-step h3, .workflow-step p { position: relative; z-index: 2; }
+.workflow-step h3 { font-family: var(--font-head); font-size: 1.25rem; color: var(--primary); margin-bottom: 15px; }
+.workflow-step p { color: var(--text-gray); font-size: 0.95rem; }
+.workflow-connector { color: var(--accent); font-size: 1.5rem; opacity: 0.5; }
+
+.coverage-note { text-align: center; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px dashed rgba(0,0,0,0.1); border-radius: 50px; background-color: #f9fafb; }
+.coverage-note p { color: var(--primary); font-size: 1rem; margin: 0; }
+
+/* --- CONTACTO INFERIOR (LIMPIO) --- */
+.contact-info-block { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.contact-icon { width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.2rem; }
+.contact-text h4 { color: var(--primary); font-family: var(--font-head); margin-bottom: 3px; }
+.contact-text p { color: var(--text-gray); font-size: 0.9rem; margin: 0; }
+
+/* --- FAQ --- */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); margin-bottom: 10px; overflow: hidden; }
+.faq-question { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; background-color: transparent; border: none; font-family: var(--font-head); font-size: 1.1rem; cursor: pointer; text-align: left; transition: var(--transition); color: var(--text-gray); }
+.faq-question:hover { color: var(--accent); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.faq-answer p { padding: 0 20px 20px 20px; color: var(--text-gray); font-size: 0.95rem; }
+.faq-item.active .faq-answer { max-height: 300px; }
+.faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent); }
+
+/* --- RESPONSIVE ESPECÍFICO DEL INICIO --- */
+@media (max-width: 900px) {
+    /* Hero Móvil */
+    .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; margin-top: 20px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text p { margin: 0 auto; font-size: 1.05rem; }
+
+    /* Contacto Info Móvil */
+    #contacto-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .contact-info-block { justify-content: center; }
+
+    /* Workflow Móvil */
+    .workflow-grid { flex-direction: column; gap: 40px; }
+    .workflow-connector { transform: rotate(90deg); }
+}

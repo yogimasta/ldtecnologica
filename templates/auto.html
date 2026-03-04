@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Nosotros | L&D Tecnológica{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-nosotros.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-content reveal active">
+            <h1>Nuestra Esencia</h1>
+            <p>Impulsando la industria peruana con ingeniería de nueva generación, precisión técnica y un compromiso inquebrantable con cada proyecto.</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="grid-2-col reveal">
+            <div class="text-block">
+                <h2>Ingeniería de Nueva Generación</h2>
+                <p>L&D Tecnológica surge como una respuesta a la necesidad de modernización en la industria local. Fusionamos la agilidad de una firma joven con la <strong>experiencia técnica acumulada</strong> de nuestros especialistas en automatización y energía.</p>
+                <p>No nos limitamos a instalar equipos; aplicamos metodologías de gestión modernas y normativa internacional (IEC/IEEE) para garantizar que cada solución, sea pequeña o grande, cumpla con los más altos estándares de eficiencia.</p>
+            </div>
+            <div class="image-block">
+                <img src="../static/imagenes/tablero-nosotros.jpeg" alt="Tecnología Industrial">
+            </div>
+        </div>
+
+       <div class="stats-bar reveal">
+            <div class="stat-item">
+                <span class="stat-number">+5</span>
+                <span class="stat-label">Especialistas Técnicos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Cumplimiento Normativo</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Respaldo y Soporte</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="mvv-section reveal" style="padding: 80px 5%; background-color: var(--bg-body);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            
+            <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center;">
+                <i class="fas fa-bullseye" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                <h3 style="font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 15px; color: var(--primary);">Nuestra Misión</h3>
+                <p style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">Brindar soluciones de ingeniería aplicada y automatización industrial que optimicen los procesos de nuestros clientes, garantizando seguridad, eficiencia y los más altos estándares de calidad técnica.</p>
+            </div>
+            
+            <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center;">
+                <i class="fas fa-eye" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                <h3 style="font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 15px; color: var(--primary);">Nuestra Visión</h3>
+                <p style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">Ser reconocidos como el socio estratégico líder en la modernización industrial del país, destacando por nuestra capacidad de innovación, confiabilidad y compromiso inquebrantable con cada proyecto.</p>
+            </div>
+            
+            <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center;">
+                <i class="fas fa-gem" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                <h3 style="font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 15px; color: var(--primary);">Nuestros Valores</h3>
+                <p style="color: var(--text-gray); font-size: 0.95rem; line-height: 1.6;">
+                    <strong>Precisión:</strong> Exactitud en cada detalle.<br>
+                    <strong>Integridad:</strong> Transparencia corporativa.<br>
+                    <strong>Innovación:</strong> Mejora continua tecnológica.<br>
+                    <strong>Seguridad:</strong> Respaldo total al equipo humano.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+<!--proximamente con permiso del cliente-->
+<!--<section class="clients-section reveal" style="padding: 80px 5%; background-color: white; text-align: center;">
+    <div class="center-header">
+        <small>Casos de Éxito</small>
+        <h2 style="font-family: var(--font-head); font-size: 2.2rem; color: var(--primary); margin-bottom: 10px;">Empresas que confían en nosotros</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-gray);">Hemos tenido el privilegio de optimizar las operaciones y servicios de empresas que apuestan por la calidad.</p>
+    </div>
+    
+    <div style="max-width: 1000px; margin: 50px auto 0; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; align-items: center;">
+        <img src="{{ url_for('static', filename='img/logo-cliente-1.png') }}" alt="Cliente 1" style="max-height: 70px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s;">
+        <img src="{{ url_for('static', filename='img/logo-cliente-2.png') }}" alt="Cliente 2" style="max-height: 70px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s;">
+    </div>
+</section>
+
+<section class="projects-section reveal" style="padding: 80px 5%; background-color: var(--bg-body);">
+    <div class="center-header" style="text-align: center; margin-bottom: 40px;">
+        <small>Nuestro Trabajo</small>
+        <h2 style="font-family: var(--font-head); font-size: 2.2rem; color: var(--primary);">Galería de Proyectos</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-gray);">Un vistazo a nuestras implementaciones en campo, tableros ensamblados y puestas en marcha.</p>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="height: 250px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background-color: #ddd; display:flex; align-items:center; justify-content:center; color:#888;">
+            <p>Foto Proyecto 1</p>
+        </div>
+        <div style="height: 250px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background-color: #ddd; display:flex; align-items:center; justify-content:center; color:#888;">
+            <p>Foto Proyecto 2</p>
+        </div>
+        <div style="height: 250px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background-color: #ddd; display:flex; align-items:center; justify-content:center; color:#888;">
+            <p>Foto Proyecto 3</p>
+        </div>
+    </div>
+</section>
+-->
+
+    
+    <section class="brochure-section reveal">
+        <div class="brochure-content">
+            <div class="brochure-text">
+                <h2>Conoce nuestro portafolio técnico</h2>
+                <p>Descarga el brochure corporativo con el detalle de todas nuestras soluciones.</p>
+            </div>
+            <a href="{{ url_for('static', filename='documentos/Doc1.pdf') }}" download="Brochure_LyD_Tecnologica_2026.pdf" class="btn-download">
+                <i class="fas fa-file-pdf" style="margin-right:10px;"></i> Descargar Brochure
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='js/script-nosotros.js') }}"></script>
+{% endblock %}

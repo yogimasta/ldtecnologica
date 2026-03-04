@@ -1,0 +1,99 @@
+/* --- VARIABLES GLOBALES Y RESET --- */
+:root {
+    --bg-body: #F9FAFB; --bg-dark: #0F172A;
+    --primary: #1E293B; --accent: #0ea5e9;
+    --gold: #C4A484; --text-gray: #64748B;
+    --font-head: "Montserrat", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --transition: all 0.3s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-body); color: var(--primary); font-family: var(--font-body); line-height: 1.7; overflow-x: hidden; font-weight: 300; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+
+/* --- UTILIDADES GLOBALES --- */
+.section-padding { padding: 100px 5%; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; border-radius: 4px; transition: var(--transition); cursor: pointer; letter-spacing: 1px; }
+.btn-primary { background-color: var(--accent); color: white; border: 2px solid var(--accent); padding: 15px 35px; }
+.btn-primary:hover { background-color: white; color: var(--accent); transform: translateY(-3px); }
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: transparent; position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
+header.scrolled { background: rgba(255, 255, 255, 0.98); padding: 15px 5%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.logo-img { height: 100px; width: auto; transition: var(--transition); mix-blend-mode: screen; filter: contrast(110%) brightness(110%); }
+header.scrolled .logo-img { height: 45px; mix-blend-mode: normal; filter: none; }
+.nav-links { display: flex; gap: 40px; }
+.nav-links a { font-family: var(--font-head); color: white; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+header.scrolled .nav-links a { color: var(--primary); text-shadow: none; }
+.nav-links a.active { color: var(--accent) !important; }
+.nav-links a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0; background-color: var(--accent); transition: width 0.3s; }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+/* --- MENÚ MÓVIL Y HAMBURGUESA --- */
+.hamburger-menu { display: none; }
+.mobile-nav-overlay { display: flex; position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); z-index: 2000; transition: right 0.4s ease; justify-content: center; align-items: center; text-align: center; visibility: hidden; opacity: 0; }
+.mobile-nav-overlay.active { right: 0; visibility: visible; opacity: 1; }
+.mobile-links li { margin: 25px 0; }
+.mobile-links a { font-family: var(--font-head); font-size: 1.5rem; color: white; text-transform: uppercase; font-weight: 700; }
+.close-btn { position: absolute; top: 30px; right: 30px; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
+
+/* --- FOOTER --- */
+.site-footer { background-color: var(--bg-dark); color: var(--text-gray); padding: 80px 0 0 0; font-size: 0.9rem; }
+.footer-container { max-width: 1200px; margin: 0 auto; padding: 0 5% 60px 5%; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.footer-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: white; margin-bottom: 20px; letter-spacing: 1px; }
+.footer-col h4 { color: white; font-family: var(--font-head); font-size: 0.85rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+.footer-links li, .contact-info li { margin-bottom: 18px; }
+.footer-links a:hover, .social-link:hover { color: white; }
+.social-icons { display: flex; gap: 20px; }
+.social-link { color: var(--text-gray); font-size: 1.1rem; transition: var(--transition); }
+.footer-bottom { padding: 30px 5%; text-align: center; font-size: 0.8rem; background-color: #0b1120; color: rgba(255,255,255,0.3); }
+
+/* --- WHATSAPP & COOKIES & MODALES --- */
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: white; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 10000; transition: var(--transition); }
+.whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); color: white; }
+.cookie-banner { position: fixed; bottom: -100%; left: 0; width: 100%; background-color: rgba(15, 23, 42, 0.95); color: white; padding: 20px 5%; z-index: 9999; backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); transition: bottom 0.5s ease-in-out; }
+.cookie-banner.show { bottom: 0; }
+.cookie-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.cookie-buttons { display: flex; gap: 15px; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.95); z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; padding: 20px; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-content { background-color: white; width: 100%; max-width: 800px; max-height: 90vh; border-radius: 12px; display: flex; flex-direction: column; position: relative; transform: scale(0.95); transition: transform 0.3s; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+.modal-overlay.active .modal-content { transform: scale(1); }
+.modal-close { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 1.5rem; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: 0.3s; z-index: 10; }
+.modal-close:hover { background: var(--accent); color: white; }
+.modal-header { background-color: var(--primary); color: white; padding: 30px 40px; text-align: left; border-bottom: 4px solid var(--accent); flex-shrink: 0; border-radius: 12px 12px 0 0; }
+.modal-header h2 { font-family: var(--font-head); font-size: 1.8rem; margin: 0; line-height: 1.2; }
+.modal-body { padding: 30px 40px; background-color: var(--bg-body); overflow-y: auto; border-radius: 0 0 12px 12px; }
+
+/* ==========================================================
+   RESPONSIVE MAESTRO (SOLUCIÓN DEFINITIVA PARA CELULARES)
+========================================================== */
+@media screen and (max-width: 900px) {
+    /* Destruir el menú de texto en celular para que no empuje el logo */
+    .desktop-nav, .nav-links { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+    
+    header { padding: 10px 5% !important; justify-content: space-between !important; }
+    .logo-img { height: 45px !important; }
+    
+    .hamburger-menu { display: block !important; font-size: 1.5rem; color: white; cursor: pointer; }
+    header.scrolled .hamburger-menu { color: var(--primary); }
+    
+    .footer-container { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
+    .footer-col h4::after { content: ''; display: block; width: 40px; height: 2px; background: var(--accent); margin: 10px auto; }
+    .social-icons { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+    .cookie-content { flex-direction: column; text-align: center; }
+    .cookie-buttons { width: 100%; justify-content: center; }
+    .modal-overlay { padding: 15px; align-items: flex-start; }
+    .modal-content { margin: auto; max-height: calc(100vh - 30px); }
+    .modal-header { padding: 25px 20px; }
+    .modal-header h2 { font-size: 1.4rem; padding-right: 40px; }
+    .modal-body { padding: 20px; }
+    .modal-close { top: 20px; right: 15px; width: 35px; height: 35px; font-size: 1.2rem; background: rgba(255,255,255,0.15); }
+}

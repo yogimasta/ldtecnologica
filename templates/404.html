@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Error 404 - Página no encontrada | L&D Tecnológica</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES GLOBALES (Las mismas de tu sitio) --- */
+        :root {
+            --bg-body: #F9FAFB;
+            --bg-dark: #0F172A;
+            --primary: #1E293B;
+            --accent: #0ea5e9;
+            --text-gray: #64748B;
+            --font-head: "Montserrat", sans-serif;
+            --font-body: "Inter", sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark); /* Fondo oscuro para impacto */
+            color: white;
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+
+        /* --- HEADER SIMPLIFICADO --- */
+        header {
+            padding: 20px 5%;
+            width: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 10;
+        }
+        .logo-img { height: 45px; width: auto; }
+
+        /* --- SECCIÓN 404 --- */
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Efecto de fondo sutil */
+        .error-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, rgba(15, 23, 42, 1) 70%);
+            z-index: 1;
+        }
+
+        .error-code {
+            font-family: var(--font-head);
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* El número 0 tiene el color de tu marca */
+        .error-code span { color: var(--accent); -webkit-text-stroke: 0; }
+
+        .error-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .error-title {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .error-desc {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- BOTONES --- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background-color: var(--accent);
+            color: white;
+            font-family: var(--font-head);
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 2px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .error-code { font-size: 6rem; }
+            .error-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-bg"></div>
+
+    <header>
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo2.png') }}" alt="L&D Tecnológica" class="logo-img">
+        </a>
+    </header>
+
+    <main class="error-container">
+        <i class="fas fa-plug-circle-exclamation error-icon"></i>
+        <div class="error-code">4<span>0</span>4</div>
+        <h1 class="error-title">Señal de Control Perdida</h1>
+        <p class="error-desc">Parece que hay un circuito abierto en tu navegación. La página que intentas consultar ha sido reubicada o ya no existe en nuestro sistema.</p>
+        
+        <a href="/" class="btn-primary">
+            <i class="fas fa-arrow-left"></i> Volver al panel principal
+        </a>
+    </main>
+
+</body>
+</html>

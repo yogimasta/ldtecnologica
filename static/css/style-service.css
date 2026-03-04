@@ -1,0 +1,127 @@
+/* ==========================================================
+   1. PAGE HERO (Cabecera interna de Servicios)
+========================================================== */
+.page-hero {
+    padding: 150px 5% 80px 5%;
+    background-color: var(--bg-dark); 
+    background-image: linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.85)), url('../imagenes/hyundai-motor-group-h2rWePLKxvs-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto parallax */
+    text-align: center; 
+    color: white; 
+    position: relative;
+}
+
+.page-hero h1 { font-family: var(--font-head); font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; }
+.page-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
+.page-hero::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 4px; background-color: var(--accent); border-radius: 4px 4px 0 0;
+}
+
+/* ==========================================================
+   2. GALERÍA EXPANDIBLE (Tarjetas de Servicios)
+========================================================== */
+.services-section { padding: 80px 5%; }
+
+.gallery-container {
+    display: flex; width: 100%; max-width: 1300px;
+    height: 600px; gap: 15px; margin: 0 auto;
+}
+
+.gallery-card {
+    flex: 1; position: relative; border-radius: 20px;
+    overflow: hidden; transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer; background-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    opacity: 0.5; filter: grayscale(100%); 
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Imágenes de la Galería */
+.card-1 .card-bg { background-image: url('../imagenes/automatizacion.jpeg'); }
+.card-2 .card-bg { background-image: url('../imagenes/tablero-electrico.jpeg'); }
+.card-3 .card-bg { background-image: url('../imagenes/instrumentacion.jpeg'); }
+.card-4 .card-bg { background-image: url('../imagenes/bombeo.jpeg'); }
+.card-5 .card-bg { background-image: url('../imagenes/consultoria.jpeg'); }
+
+.card-content {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+    padding: 40px 30px; color: white; z-index: 2;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.5) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.card-number { 
+    font-family: var(--font-head); font-size: 2rem; 
+    color: rgba(255,255,255,0.2); font-weight: 700; 
+    margin-bottom: auto; transition: 0.4s;
+}
+
+.gallery-card h3 { 
+    font-family: var(--font-head); font-size: 1.4rem; 
+    text-transform: uppercase; letter-spacing: 1px; font-weight: 600; 
+    white-space: nowrap; transition: all 0.4s; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-desc { 
+    height: 0; opacity: 0; overflow: hidden; 
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+    transform: translateY(20px); 
+}
+.card-desc p { 
+    font-size: 0.95rem; color: rgba(255,255,255,0.8); 
+    margin-top: 15px; line-height: 1.6; max-width: 350px; 
+    border-left: 3px solid var(--accent); padding-left: 15px;
+}
+
+/* Efectos Hover de la Galería */
+.gallery-card:hover { flex: 4; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.gallery-card:hover .card-bg { opacity: 0.8; filter: grayscale(0%); transform: scale(1.05); }
+.gallery-card:hover h3 { color: var(--accent); white-space: normal; }
+.gallery-card:hover .card-number { color: var(--accent); transform: translateY(-10px); }
+.gallery-card:hover .card-desc { height: 100px; opacity: 1; transform: translateY(0); }
+
+/* ==========================================================
+   3. ESTILOS ESPECÍFICOS DEL MODAL DE SERVICIOS
+========================================================== */
+.modal-header p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0; }
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+.modal-list { list-style: none; padding: 0; margin: 0; }
+.modal-list li {
+    position: relative; padding-left: 25px; margin-bottom: 12px;
+    color: var(--text-gray); font-size: 0.9rem; line-height: 1.5;
+}
+.modal-list li::before {
+    content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+    position: absolute; left: 0; top: 2px; color: var(--accent);
+}
+
+/* ==========================================================
+   4. RESPONSIVE DE SECCIONES (Celulares y Tablets)
+========================================================== */
+@media (max-width: 900px) {
+    /* Page Hero */
+    .page-hero h1 { font-size: 2.5rem; }
+
+    /* Galería Móvil */
+    .gallery-container { flex-direction: column; height: 1200px; }
+    .gallery-card { flex: none; height: 220px; border-radius: 12px; }
+    .gallery-card:hover { flex: none; height: 350px; }
+    .card-desc { height: auto; opacity: 1; transform: none; display: none; }
+    .gallery-card:hover .card-desc { display: block; }
+    .card-number { margin-bottom: 10px; }
+}
+
+@media (max-width: 768px) {
+    /* Que las dos columnas del modal se vuelvan una sola en celular */
+    .modal-grid { grid-template-columns: 1fr; gap: 20px; } 
+}

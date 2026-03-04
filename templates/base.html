@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}L&D TECNOLÓGICA | Automatización e Ingeniería Eléctrica{% endblock %}</title>
+    <meta name="description" content="{% block meta_desc %}Empresa de ingeniería en Lima experta en automatización, tableros eléctricos, sistemas de bombeo y certificación ISO.{% endblock %}">
+    <meta name="keywords" content="automatización industrial, tableros eléctricos, PLC, SCADA, pozos a tierra, ingeniería eléctrica Lima, L&D Tecnológica">
+    <meta name="author" content="L&D Tecnológica S.A.C.">
+    <meta name="geo.region" content="PE-LMA" /> 
+    <meta name="geo.placename" content="Lima" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ldtecnologica.com{{ request.path }}">
+    <meta property="og:title" content="L&D TECNOLÓGICA | Ingeniería Industrial">
+    <meta property="og:description" content="Expertos en L&D TECNOLÓGICA. Ofrecemos soluciones avanzadas de automatización industrial, tableros eléctricos e ingeniería de precisión en todo el Perú.">
+    <meta property="og:image" content="https://www.ldtecnologica.com/static/imagenes/logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L&D TECNOLÓGICA | Ingeniería Industrial">
+    <meta name="twitter:image" content="https://www.ldtecnologica.com/static/imagenes/logo.jpg">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imagenes/favicon.ico') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-global.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TU_CODIGO_AQUI"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TU_CODIGO_AQUI');
+    </script>
+</head>
+<body>
+
+    <a href="https://wa.me/51947924204?text=Hola%20L%26D,%20deseo%20más%20información." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header id="navbar">
+        <a href="/"><img src="{{ url_for('static', filename='imagenes/logo2.webp') }}" alt="L&D Tecnológica" class="logo-img" style="filter: none; mix-blend-mode: normal;"></a>
+        <nav class="desktop-nav">
+            <ul class="nav-links">
+                <li><a href="/" class="{{ 'active' if request.path == '/' }}">Inicio</a></li>
+                <li><a href="/auto" class="{{ 'active' if request.path == '/auto' }}">Nosotros</a></li>
+                <li><a href="/servicios" class="{{ 'active' if request.path == '/servicios' }}">Servicios</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobile-menu">
+        <div class="mobile-nav-content">
+            <button class="close-btn" id="close-menu-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-links">
+                <li><a href="/" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="/auto" onclick="closeMenu()">Nosotros</a></li>
+                <li><a href="/servicios" onclick="closeMenu()">Servicios</a></li>
+                <li><a href="#faq" onclick="closeMenu()">Preguntas</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer reveal">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">L&D TECNOLÓGICA</div>
+                <p style="opacity: 0.6; line-height: 1.8;">Ingeniería en soluciones seguras y sostenibles.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="/auto">Nosotros</a></li>
+                    <li><a href="/servicios">Servicios</a></li>
+                    <li><a href="javascript:void(0)" id="link-privacidad">Política de Privacidad</a></li>
+                    <li><a href="javascript:void(0)" id="link-terminos">Términos de Servicio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><a href="#">+51 947 924 204</a></li>
+                    <li><a href="mailto:ld.servicios.ventas@gmail.com">ld.servicios.ventas@gmail.com</a></li>
+                    <li><span style="opacity:0.6">Lima, Perú</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 L&D Tecnológica S.A.C. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="legal-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 700px;">
+            <button class="modal-close" id="close-legal-btn"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2 id="legal-title">Título Legal</h2>
+            </div>
+            <div class="modal-body" id="legal-body" style="color: var(--text-gray); text-align: justify; padding-right: 20px;">
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <h3>🍪 Privacidad y Cookies</h3>
+            <p>Usamos cookies para mejorar tu experiencia. Puedes aceptar todas o rechazar las no esenciales.</p>
+            <div class="cookie-buttons">
+                <button id="btn-reject-cookies" class="btn-secondary" style="padding: 8px 15px;">Rechazar</button>
+                <button id="btn-accept-cookies" class="btn-primary" style="padding: 8px 15px;">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    
+    {% block extra_js %}{% endblock %}
+
+</body>
+    <script>
+        const GA_MEASUREMENT_ID = 'G-XVPRFYM912';
+
+        function loadGoogleAnalytics() {
+            const script1 = document.createElement('script');
+            script1.async = true;
+            script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+            document.head.appendChild(script1);
+
+            const script2 = document.createElement('script');
+            script2.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+            `;
+            document.head.appendChild(script2);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const banner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('btn-accept-cookies');
+            const declineBtn = document.getElementById('btn-reject-cookies');
+            
+            const cookieConsent = localStorage.getItem('cookieConsent');
+
+            if (cookieConsent === 'accepted') {
+                loadGoogleAnalytics(); 
+            } else if (!cookieConsent) {
+                banner.classList.add('show'); 
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.classList.remove('show');
+                loadGoogleAnalytics();
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'declined');
+                banner.classList.remove('show');
+            });
+        });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    
+</html>
