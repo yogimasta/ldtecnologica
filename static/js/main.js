@@ -106,8 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Última actualización: Febrero 2026</strong></p>
                 <p>Al acceder y utilizar el sitio web de L&D Tecnológica S.A.C., usted acepta estar sujeto a los siguientes términos y condiciones de uso.</p>
                 <br>
-                <h4 style="color: var(--primary); margin-bottom: 5px;">1. Propiedad Intelectual</h4>
-                <p>Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos e imágenes, es propiedad exclusiva de L&D Tecnológica o está licenciado para nuestro uso. Queda prohibida su reproducción sin autorización.</p>
+                <h4 style="color: var(--primary); margin-bottom: 5px;">1. Propiedad Intelectual</h4>
                 <br>
                 <h4 style="color: var(--primary); margin-bottom: 5px;">2. Limitación de Responsabilidad</h4>
                 <p>La información proporcionada en esta web es de carácter informativo. Para especificaciones técnicas exactas y garantías de proyectos, se deberá firmar un contrato formal de servicios con nuestra empresa.</p>
