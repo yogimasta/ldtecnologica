@@ -29,9 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style-global.css') }}">
-    
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imagenes/favicon.ico') }}">
     {% block extra_css %}{% endblock %}
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TU_CODIGO_AQUI"></script>
@@ -189,4 +189,5 @@
 
     <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
     
+
 </html>
