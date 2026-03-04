@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_from_directory, jsonify,
 from flask_talisman import Talisman
 import smtplib
 from email.message import EmailMessage
-import os
+import requests 
 
 app = Flask(__name__)
 
@@ -62,6 +62,8 @@ def stats_page():
 def servicios_page():
     return render_template('servicios.html')
 
+import requests # Asegúrate de agregar esto arriba con tus otros imports
+
 # 3. Ruta para el Envío de Correos
 @app.route('/enviar_correo', methods=['POST'])
 def enviar_correo():
@@ -77,43 +79,31 @@ def enviar_correo():
     telefono = request.form.get('telefono', 'No especificado')
     mensaje_cliente = request.form.get('mensaje')
 
-    # 3. Configuración de credenciales
-    mi_correo = "cruzcarazasmelvin@gmail.com" 
-    password = os.environ.get('PASSWORD_GMAIL') 
+    # 3. Configuración para Web3Forms (Reemplaza a smtplib)
+    access_key = os.environ.get('WEB3FORMS_KEY') 
 
-    # 4. Creación del mensaje
-    msg = EmailMessage()
-    msg['Subject'] = f"🟢 NUEVA COTIZACIÓN WEB: {nombre} ({empresa})"
-    msg['From'] = mi_correo
-    msg['To'] = mi_correo 
-    
-    cuerpo_correo = f"""
-    Has recibido un nuevo mensaje desde la página web corporativa:
+    # 4. Creación del paquete de datos
+    payload = {
+        "access_key": access_key,
+        "subject": f"🟢 NUEVA COTIZACIÓN WEB: {nombre} ({empresa})",
+        "from_name": nombre,
+        "email": correo, 
+        "message": f"DATOS DEL CLIENTE:\n- Nombre: {nombre}\n- Empresa: {empresa}\n- Correo: {correo}\n- Teléfono: {telefono}\n\nMENSAJE / REQUERIMIENTO:\n{mensaje_cliente}"
+    }
 
-    DATOS DEL CLIENTE:
-    - Nombre: {nombre}
-    - Empresa: {empresa}
-    - Correo: {correo}
-    - Teléfono: {telefono}
-
-    MENSAJE / REQUERIMIENTO:
-    {mensaje_cliente}
-    """
-    msg.set_content(cuerpo_correo)
-
-    # 5. Envío Real y Respuesta JSON
+    # 5. Envío Real y Respuesta JSON (Vía HTTP, permitido por Render)
     try:
-        # Esta es la parte que faltaba: la conexión con Gmail
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(mi_correo, password)
-            smtp.send_message(msg)
+        respuesta = requests.post("https://api.web3forms.com/submit", json=payload)
         
         # Si el envío fue exitoso, el JavaScript de L&D TECNOLÓGICA mostrará el éxito
-        return jsonify({'status': 'success', 'message': '¡Mensaje enviado con éxito!'})
-        
+        if respuesta.status_code == 200:
+            return jsonify({'status': 'success', 'message': '¡Mensaje enviado con éxito!'})
+        else:
+            return jsonify({'status': 'error', 'message': 'No se pudo procesar el envío.'})
+            
     except Exception as e:
-        # Si falla la clave o el internet, el JavaScript mostrará el error
-        return jsonify({'status': 'error', 'message': f"Error al enviar: {str(e)}"})# 4. Rutas para SEO (Buscadores)
+        # Si falla el internet, el JavaScript mostrará el error
+        return jsonify({'status': 'error', 'message': f"Error de conexión: {str(e)}"})
 @app.route('/robots.txt')
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
@@ -131,3 +121,4 @@ def page_not_found(e):
 if __name__ == '__main__':
 
     app.run(debug=False, port=5000)
+
