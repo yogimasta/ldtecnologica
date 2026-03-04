@@ -3,6 +3,8 @@ from flask_talisman import Talisman
 import smtplib
 from email.message import EmailMessage
 import requests 
+import os
+
 
 app = Flask(__name__)
 
@@ -121,4 +123,5 @@ def page_not_found(e):
 if __name__ == '__main__':
 
     app.run(debug=False, port=5000)
+
 
