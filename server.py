@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_from_directory, jsonify,
 from flask_talisman import Talisman
 import smtplib
 from email.message import EmailMessage
+import os
 
 app = Flask(__name__)
 
@@ -78,7 +79,7 @@ def enviar_correo():
 
     # 3. Configuración de credenciales
     mi_correo = "cruzcarazasmelvin@gmail.com" 
-    password = "bfjy xoll gdsy txoz" 
+    password = os.environ.get('PASSWORD_GMAIL') 
 
     # 4. Creación del mensaje
     msg = EmailMessage()
@@ -128,4 +129,5 @@ def page_not_found(e):
 
 # 6. Arranque del Servidor
 if __name__ == '__main__':
+
     app.run(debug=False, port=5000)
