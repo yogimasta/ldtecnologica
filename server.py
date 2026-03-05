@@ -96,7 +96,8 @@ def enviar_correo():
     # 5. Envío Real y Respuesta JSON (Vía HTTP, permitido por Render)
     try:
         respuesta = requests.post("https://api.web3forms.com/submit", json=payload)
-        
+
+        print("RESPUESTA WEB3FORMS:", respuesta.text, flush=True)
         # Si el envío fue exitoso, el JavaScript de L&D TECNOLÓGICA mostrará el éxito
         if respuesta.status_code == 200:
             return jsonify({'status': 'success', 'message': '¡Mensaje enviado con éxito!'})
@@ -123,5 +124,6 @@ def page_not_found(e):
 if __name__ == '__main__':
 
     app.run(debug=False, port=5000)
+
 
 
