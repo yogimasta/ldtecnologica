@@ -1,14 +1,9 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify, redirect
 from flask_talisman import Talisman
-import smtplib
-from email.message import EmailMessage
-import requests 
 import os
-
+import requests 
 
 app = Flask(__name__)
-
-from flask_talisman import Talisman
 
 # 1. Definimos las reglas exactas
 csp = {
@@ -41,8 +36,9 @@ csp = {
     ]
 }
 
-# 2. Le pasamos las reglas a Talisman (Asegúrate de que reemplace a tu Talisman anterior)
+# 2. Le pasamos las reglas a Talisman 
 Talisman(app, force_https=False, content_security_policy=csp)
+
 @app.before_request
 def redirigir_www():
     # Si la URL empieza con www, lo quitamos y redirigimos
@@ -51,7 +47,7 @@ def redirigir_www():
         url_limpia = request.url.replace(request.host, host_limpio, 1)
         return redirect(url_limpia, code=301)
 
-# 2. Rutas Principales de la Web
+# 3. Rutas Principales de la Web
 @app.route('/')
 def inicio():
     return render_template('index.html')
@@ -64,12 +60,12 @@ def stats_page():
 def servicios_page():
     return render_template('servicios.html')
 
-import requests # Asegúrate de agregar esto arriba con tus otros imports
-
-# 3. Ruta para el Envío de Correos
+# 4. Ruta para el Envío de Correos (Solo responde éxito, JS hace el resto)
 @app.route('/enviar_correo', methods=['POST'])
 def enviar_correo():
     return jsonify({"status": "success", "message": "Redireccionando..."})
+
+# 5. Rutas SEO
 @app.route('/robots.txt')
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
@@ -78,16 +74,12 @@ def robots():
 def sitemap():
     return send_from_directory(app.static_folder, 'sitemap.xml')
 
-# 5. Manejo de Errores
+# 6. Manejo de Errores
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-# 6. Arranque del Servidor
+# 7. Arranque del Servidor (Corregido para Render)
 if __name__ == '__main__':
-
-    app.run(debug=False, port=5000)
-
-
-
-
+    puerto = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=puerto, debug=False)
