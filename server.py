@@ -33,6 +33,11 @@ csp = {
         '\'self\'',
         'https://*.gstatic.com',
         'https://cdnjs.cloudflare.com'
+    ],
+    # ¡EL PASE VIP PARA LOS CORREOS!
+    'connect-src': [
+        '\'self\'',
+        'https://api.web3forms.com'
     ]
 }
 
@@ -83,3 +88,4 @@ def page_not_found(e):
 if __name__ == '__main__':
     puerto = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=puerto, debug=False)
+
