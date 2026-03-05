@@ -14,13 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. LÓGICA DE ENVÍO DE CORREO (AJAX)
+    // 2. LÓGICA DE ENVÍO DE CORREO DIRECTO (WEB3FORMS)
     // ==========================================
     const contactForm = document.getElementById('hero-contact-form');
     
     if(contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Detiene la recarga de la página
+
+            // Recolectamos todos los datos que escribió el cliente
+            const formData = new FormData(contactForm);
+            
+            // AGREGAMOS TU LLAVE DE ACCESO DIRECTO AL PAQUETE
+            formData.append("access_key", "dc10273e-0cba-4a71-abf0-73cc8e01c172");
 
             // Capturamos el botón para cambiar su diseño
             const btnSubmit = contactForm.querySelector('button[type="submit"]');
@@ -31,17 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSubmit.disabled = true; // Bloqueamos el botón para evitar doble envío
             btnSubmit.style.opacity = '0.7';
 
-            // Recolectamos todos los datos que escribió el cliente
-            const formData = new FormData(contactForm);
-
-            // Enviamos los datos a Python en modo silencioso
-            fetch('/enviar_correo', {
+            // Enviamos los datos directo a Web3Forms (Saltamos Python/Render)
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json()) // Recibimos el JSON de Python
+            .then(response => response.json()) // Recibimos el JSON de Web3Forms
             .then(data => {
-                if(data.status === 'success') {
+                // Web3Forms devuelve data.success en lugar de data.status
+                if(data.success) {
                     // Si todo salió bien: Botón Verde
                     btnSubmit.innerHTML = '<i class="fas fa-check-circle" style="margin-right: 8px;"></i> ¡Enviado con Éxito!';
                     btnSubmit.style.backgroundColor = '#10b981'; // Color verde esmeralda
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 4000);
                     
                 } else {
-                    // Si Python nos devuelve un error
+                    // Si Web3Forms nos devuelve un error
                     alert("Hubo un problema al enviar: " + data.message);
                     btnSubmit.innerHTML = originalText;
                     btnSubmit.disabled = false;
