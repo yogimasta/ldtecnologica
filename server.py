@@ -69,44 +69,7 @@ import requests # Asegúrate de agregar esto arriba con tus otros imports
 # 3. Ruta para el Envío de Correos
 @app.route('/enviar_correo', methods=['POST'])
 def enviar_correo():
-    # 1. Validación del Honeypot (Protección contra bots)
-    honeypot = request.form.get('validacion_empresa')
-    if honeypot:
-        return jsonify({"status": "success", "message": "Mensaje enviado"})
-
-    # 2. Captura de datos del formulario
-    nombre = request.form.get('nombre')
-    empresa = request.form.get('empresa', 'No especificada')
-    correo = request.form.get('correo')
-    telefono = request.form.get('telefono', 'No especificado')
-    mensaje_cliente = request.form.get('mensaje')
-
-    # 3. Configuración para Web3Forms (Reemplaza a smtplib)
-    access_key = os.environ.get('WEB3FORMS_KEY') 
-
-    # 4. Creación del paquete de datos
-    payload = {
-        "access_key": access_key,
-        "subject": f"🟢 NUEVA COTIZACIÓN WEB: {nombre} ({empresa})",
-        "from_name": nombre,
-        "email": correo, 
-        "message": f"DATOS DEL CLIENTE:\n- Nombre: {nombre}\n- Empresa: {empresa}\n- Correo: {correo}\n- Teléfono: {telefono}\n\nMENSAJE / REQUERIMIENTO:\n{mensaje_cliente}"
-    }
-
-    # 5. Envío Real y Respuesta JSON (Vía HTTP, permitido por Render)
-    try:
-        respuesta = requests.post("https://api.web3forms.com/submit", json=payload)
-
-        print("RESPUESTA WEB3FORMS:", respuesta.text, flush=True)
-        # Si el envío fue exitoso, el JavaScript de L&D TECNOLÓGICA mostrará el éxito
-        if respuesta.status_code == 200:
-            return jsonify({'status': 'success', 'message': '¡Mensaje enviado con éxito!'})
-        else:
-            return jsonify({'status': 'error', 'message': 'No se pudo procesar el envío.'})
-            
-    except Exception as e:
-        # Si falla el internet, el JavaScript mostrará el error
-        return jsonify({'status': 'error', 'message': f"Error de conexión: {str(e)}"})
+    return jsonify({"status": "success", "message": "Redireccionando..."})
 @app.route('/robots.txt')
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
@@ -124,6 +87,7 @@ def page_not_found(e):
 if __name__ == '__main__':
 
     app.run(debug=False, port=5000)
+
 
 
 
