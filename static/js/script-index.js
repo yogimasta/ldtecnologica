@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Recolectamos los datos
             const formData = new FormData(contactForm);
-            formData.append("access_key", "TU_LLAVE_DE_WEB3FORMS_AQUI"); // Pon tu llave aquí
+            formData.append("access_key", "dc10273e-0cba-4a71-abf0-73cc8e01c172"); // Pon tu llave aquí
 
             // Convertimos a JSON (Formato a prueba de bloqueos)
             const object = Object.fromEntries(formData);
@@ -81,4 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
